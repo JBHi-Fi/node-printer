@@ -1,4 +1,4 @@
-var printer = require("../lib"),
+var printer = require("../printer"),
     util = require('util'),
     printers = printer.getPrinters();
 

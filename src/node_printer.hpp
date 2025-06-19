@@ -57,8 +57,8 @@ MY_NODE_MODULE_CALLBACK(getPrinterDriverOptions);
  */
 MY_NODE_MODULE_CALLBACK(getJob);
 
-//TODO
-/** Set job command. 
+// TODO
+/** Set job command.
  * arguments:
  * @param printer name String
  * @param job id Number
@@ -84,28 +84,28 @@ MY_NODE_MODULE_CALLBACK(getSupportedPrintFormats);
  */
 MY_NODE_MODULE_CALLBACK(getSupportedJobCommands);
 
-//TODO:
-// optional ability to get printer spool
-
+// TODO:
+//  optional ability to get printer spool
 
 // util class
 
 /** Memory value class management to avoid memory leak
  * TODO: move to std::unique_ptr on switching to C++11
-*/
-template<typename Type>
+ */
+template <typename Type>
 class MemValueBase
 {
 public:
-    MemValueBase(): _value(NULL) {}
+    MemValueBase() : _value(NULL) {}
 
     /** Destructor. The allocated memory will be deallocated
-    */
+     */
     virtual ~MemValueBase() {}
 
-    Type * get() {return _value; }
-    Type * operator ->() { return &_value; }
+    Type *get() { return _value; }
+    Type *operator->() { return &_value; }
     operator bool() const { return (_value != NULL); }
+
 protected:
     Type *_value;
 

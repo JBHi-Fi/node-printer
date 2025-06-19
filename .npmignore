@@ -1,5 +1,8 @@
+.github/
+.vscode/
+build/
+examples/
+node_modules/
+test/
 .gitignore
 *~
-.settings
-.c9*
-prebuilds/

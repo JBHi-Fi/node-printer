@@ -1,0 +1,46 @@
+name: Build node_printer
+permissions:
+  contents: write
+  id-token: write
+on:
+  push:
+    branches: ["main", "master"]
+  workflow_dispatch:
+jobs:
+  prebuild:
+    name: Prebuild Modules
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ilammy/msvc-dev-cmd@v1
+        if: matrix.os == 'windows-latest'
+      - name: Install CUPS
+        run: |
+          sudo apt install libcups2-dev
+        if: matrix.os == 'ubuntu-latest'
+        shell: bash
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ vars.NODE_BUILD_VERSION }}
+          cache: "npm"
+      - name: Prebuild
+        run: |
+          npm install --ignore-scripts
+          mapfile -t node_versions <<< "$NODE_TARGET_VERSIONS"
+          for target in "${node_versions[@]}"; do
+            echo "Building for $target"
+            npx prebuildify -t $target --no-napi --strip
+          done
+        shell: bash
+        env:
+          NODE_TARGET_VERSIONS: ${{ vars.NODE_TARGET_VERSIONS }}
+      - name: Upload Prebuilds
+        uses: actions/upload-artifact@v4
+        with:
+          name: prebuilds-${{ matrix.os }}
+          path: prebuilds/
+          if-no-files-found: error
+          retention-days: 30

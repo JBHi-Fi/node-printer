@@ -1,3 +1,6 @@
+2025.06.19, version 0.6.0
+* Update support for node versions 18 -> 24
+
 2016.09.10, version 0.2.2
 * correct memory leak (thanks to @kjlaw89)
 
