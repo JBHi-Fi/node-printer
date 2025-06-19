@@ -1,6 +1,7 @@
 build/*
+dist/*
 node_modules/*
-prebuilds/
+prebuilds/*
 releases/*
 .c9*
 .prebuildrc
