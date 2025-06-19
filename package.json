@@ -4,45 +4,36 @@
     "name": "Ion Lupascu",
     "url": "http://program-support.co.uk/"
   },
-  "binary": {
-    "host": "https://github.com/tojocky/node-printer/releases/download/",
-    "module_name": "node_printer",
-    "module_path": "./lib/",
-    "remote_path": "v{version}"
-  },
   "contributors": [
     "Thiago Lugli @thiagoelg",
     "Eko Eryanto @ekoeryanto"
   ],
   "dependencies": {
-    "nan": "2.22.2",
-    "prebuild-install": "7.1.3"
+    "node-gyp-build": "4.8.4"
   },
   "description": "Node.js printer bindings",
   "devDependencies": {
-
-    "prebuild": "13.0.1",
-    "prebuild-ci": "4.0.0"
+    "nan": "2.22.2",
+    "prebuildify": "6.0.1"
   },
   "engines": {
-    "node": ">= 20.0.0"
+    "node": ">=18.0.0 <25.0.0"
   },
-  "homepage": "https://github.com/tojocky/node-printer",
+  "homepage": "https://github.com/JBHi-Fi/node-printer",
   "licenses": [
     {
       "type": "BSD"
     }
   ],
-  "main": "./lib/printer",
+  "main": "./index.js",
   "name": "printer",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tojocky/node-printer.git"
+    "url": "https://github.com/JBHi-Fi/node-printer.git"
   },
   "scripts": {
-    "install": "prebuild-install || node-gyp rebuild",
-    "prebuild": "prebuild --all --force --strip --verbose",
+    "install": "node-gyp-build",
     "rebuild": "node-gyp rebuild"
   },
-  "version": "0.5.3"
+  "version": "0.6.0"
 }

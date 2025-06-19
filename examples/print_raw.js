@@ -1,4 +1,4 @@
-﻿var printer = require("../lib");
+﻿var printer = require("../printer");
 
 printer.printDirect({data:"print from Node.JS buffer" // or simple String: "some text"
 	//, printer:'Foxit Reader PDF Printer' // printer name, if missing then will print to default printer

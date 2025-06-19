@@ -1,4 +1,4 @@
-var printer = require("../lib"),
+var printer = require("../printer"),
     util = require('util'),
     printerName = 'Foxit Reader PDF Printer',
     printerFormat = 'TEXT';
