@@ -1,49 +1,48 @@
 {
-  "name": "printer",
-  "description": "Node.js printer bindings",
-  "version": "0.5.3",
-  "homepage": "https://github.com/tojocky/node-printer",
   "author": {
+    "email": "ionlupascu@gmail.com",
     "name": "Ion Lupascu",
-    "url": "http://program-support.co.uk/",
-    "email": "ionlupascu@gmail.com"
+    "url": "http://program-support.co.uk/"
+  },
+  "binary": {
+    "host": "https://github.com/tojocky/node-printer/releases/download/",
+    "module_name": "node_printer",
+    "module_path": "./lib/",
+    "remote_path": "v{version}"
   },
   "contributors": [
     "Thiago Lugli @thiagoelg",
     "Eko Eryanto @ekoeryanto"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/tojocky/node-printer.git"
+  "dependencies": {
+    "nan": "2.22.2",
+    "prebuild-install": "7.1.3"
   },
+  "description": "Node.js printer bindings",
   "devDependencies": {
-    "nodeunit": "*",
-    "prebuild": "^10.0.0",
-    "prebuild-ci": "^3.1.0"
+
+    "prebuild": "13.0.1",
+    "prebuild-ci": "4.0.0"
   },
   "engines": {
-    "node": ">= 4.0.0"
+    "node": ">= 20.0.0"
   },
-  "scripts": {
-    "install": "prebuild-install || node-gyp rebuild",
-    "prebuild": "prebuild --all --force --strip --verbose",
-    "rebuild": "node-gyp rebuild",
-    "test": "nodeunit test"
-  },
-  "binary": {
-    "module_name": "node_printer",
-    "module_path": "./lib/",
-    "host": "https://github.com/tojocky/node-printer/releases/download/",
-    "remote_path": "v{version}"
-  },
+  "homepage": "https://github.com/tojocky/node-printer",
   "licenses": [
     {
       "type": "BSD"
     }
   ],
   "main": "./lib/printer",
-  "dependencies": {
-    "nan": "^2.14.1",
-    "prebuild-install": "^5.3.4"
-  }
+  "name": "printer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tojocky/node-printer.git"
+  },
+  "scripts": {
+    "install": "prebuild-install || node-gyp rebuild",
+    "prebuild": "prebuild --all --force --strip --verbose",
+    "rebuild": "node-gyp rebuild"
+  },
+  "version": "0.5.3"
 }

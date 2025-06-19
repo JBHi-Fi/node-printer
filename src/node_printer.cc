@@ -2,8 +2,9 @@
 
 #include <node_buffer.h>
 
-NAN_MODULE_INIT(Init) {
-// only for node
+NAN_MODULE_INIT(Init)
+{
+    // only for node
     MY_MODULE_SET_METHOD(target, "getPrinters", getPrinters);
     MY_MODULE_SET_METHOD(target, "getDefaultPrinterName", getDefaultPrinterName);
     MY_MODULE_SET_METHOD(target, "getPrinter", getPrinter);
@@ -26,13 +27,13 @@ NODE_MODULE(node_printer, Init)
 
 bool getStringOrBufferFromV8Value(v8::Local<v8::Value> iV8Value, std::string &oData)
 {
-    if(iV8Value->IsString())
+    if (iV8Value->IsString())
     {
         Nan::Utf8String data_str_v8(V8_LOCAL_STRING_FROM_VALUE(iV8Value));
         oData.assign(*data_str_v8, data_str_v8.length());
         return true;
     }
-    if(iV8Value->IsObject() && node::Buffer::HasInstance(iV8Value))
+    if (iV8Value->IsObject() && node::Buffer::HasInstance(iV8Value))
     {
         oData.assign(node::Buffer::Data(iV8Value), node::Buffer::Length(iV8Value));
         return true;
