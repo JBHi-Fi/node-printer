@@ -54,7 +54,6 @@ jobs:
         with:
           node-version: ${{ vars.NODE_BUILD_VERSION }}
           registry-url: https://npm.pkg.github.com/
-          cache: "npm"
       - name: get-npm-version
         id: package-version
         uses: martinbeentjes/npm-get-version-action@main

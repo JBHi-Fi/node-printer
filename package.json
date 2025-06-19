@@ -26,14 +26,14 @@
     }
   ],
   "main": "./index.js",
-  "name": "printer",
+  "name": "@jbhi-fi/printer",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JBHi-Fi/node-printer.git"
+    "url": "git+https://github.com/JBHi-Fi/node-printer.git"
   },
   "scripts": {
     "install": "node-gyp-build",
     "rebuild": "node-gyp rebuild"
   },
-  "version": "0.6.0"
+  "version": "0.6.1"
 }
