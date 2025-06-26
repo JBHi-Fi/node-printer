@@ -9,11 +9,11 @@
     "Eko Eryanto @ekoeryanto"
   ],
   "dependencies": {
+    "nan": "2.22.2",
     "node-gyp-build": "4.8.4"
   },
   "description": "Node.js printer bindings",
   "devDependencies": {
-    "nan": "2.22.2",
     "prebuildify": "6.0.1"
   },
   "engines": {
@@ -35,5 +35,5 @@
     "install": "node-gyp-build",
     "rebuild": "node-gyp rebuild"
   },
-  "version": "0.6.3"
+  "version": "0.6.4"
 }
