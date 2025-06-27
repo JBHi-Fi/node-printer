@@ -42,12 +42,17 @@
  */
 interface PrinterDevice {
     name: string;
-    description: string;
-    status: number;
-    isDefault: boolean;
-    options: {
-    [key: string]: string;
-    };
+    portName: string;
+    driverName: string;
+    location?: string;
+    printProcessor: string;
+    datatype: string;
+    status: string[];
+    statusNumber: number;
+    attributes: string[];
+    priority: number;
+    defaultPriority: number;
+    averagePPM: number;
 }
 
 interface PrintOptions {

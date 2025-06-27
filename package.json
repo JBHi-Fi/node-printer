@@ -14,6 +14,7 @@
   },
   "description": "Node.js printer bindings",
   "devDependencies": {
+    "@types/node": "^24.0.4",
     "prebuildify": "6.0.1"
   },
   "engines": {
@@ -35,5 +36,5 @@
     "install": "node-gyp-build",
     "rebuild": "node-gyp rebuild"
   },
-  "version": "0.6.4"
+  "version": "0.6.5"
 }
