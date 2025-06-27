@@ -27,6 +27,7 @@
     }
   ],
   "main": "./index.js",
+  "typings": "./index.d.ts",
   "name": "@jbhi-fi/printer",
   "repository": {
     "type": "git",
@@ -36,5 +37,5 @@
     "install": "node-gyp-build",
     "rebuild": "node-gyp rebuild"
   },
-  "version": "0.6.6"
+  "version": "0.6.7"
 }
