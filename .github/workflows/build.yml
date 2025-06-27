@@ -33,7 +33,7 @@ jobs:
           mapfile -t node_versions <<< "$NODE_TARGET_VERSIONS"
           for target in "${node_versions[@]}"; do
             echo "Building for $target"
-            npx prebuildify -t $target -t electron@$target  --no-napi --strip
+            npx prebuildify -t $target --no-napi --strip
           done
         shell: bash
         env:
