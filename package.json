@@ -10,11 +10,12 @@
   ],
   "dependencies": {
     "nan": "2.22.2",
-    "node-gyp": "11.2.0"
+    "node-gyp-build": "4.8.4"
   },
   "description": "Node.js printer bindings",
   "devDependencies": {
-    "@types/node": "^24.0.4"
+    "@types/node": "^24.0.4",
+    "prebuildify": "6.0.1"
   },
   "engines": {
     "node": ">=18.0.0 <25.0.0"
@@ -26,14 +27,15 @@
     }
   ],
   "main": "./index.js",
+  "typings": "./index.d.ts",
   "name": "@jbhi-fi/printer",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JBHi-Fi/node-printer.git"
   },
   "scripts": {
-    "install": "node-gyp configure && node-gyp build",
+    "install": "node-gyp-build",
     "rebuild": "node-gyp rebuild"
   },
-  "version": "0.6.8"
+  "version": "0.6.9"
 }
