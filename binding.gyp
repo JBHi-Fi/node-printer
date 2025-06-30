@@ -42,6 +42,17 @@
           }
         }]
       ]
+    },
+    {
+      "target_name": "action_after_build",
+      "type": "none",
+      "dependencies": [ "node_printer" ],
+      "copies": [
+        {
+          "files": [ "<(PRODUCT_DIR)/node_printer.node" ],
+          "destination": "."
+        }
+      ]
     }
   ]
 }
