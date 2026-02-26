@@ -9,16 +9,15 @@
     "Eko Eryanto @ekoeryanto"
   ],
   "dependencies": {
-    "nan": "2.22.2",
-    "node-gyp-build": "4.8.4"
+    "nan": "2.25.0",
+    "node-gyp": "12.2.0"
   },
   "description": "Node.js printer bindings",
   "devDependencies": {
-    "@types/node": "^24.0.4",
-    "prebuildify": "6.0.1"
+    "@types/node": "25.3.1"
   },
   "engines": {
-    "node": ">=18.0.0 <25.0.0"
+    "node": ">=18.0.0"
   },
   "homepage": "https://github.com/JBHi-Fi/node-printer",
   "licenses": [
@@ -34,8 +33,7 @@
     "url": "git+https://github.com/JBHi-Fi/node-printer.git"
   },
   "scripts": {
-    "install": "node-gyp-build",
-    "rebuild": "node-gyp rebuild"
+    "install": "node-gyp install"
   },
-  "version": "0.6.9"
+  "version": "0.7.0"
 }
