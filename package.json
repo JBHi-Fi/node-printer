@@ -10,7 +10,7 @@
   ],
   "dependencies": {
     "nan": "2.25.0",
-    "node-gyp": "12.2.0"
+    "node-gyp-build": "4.8.4"
   },
   "description": "Node.js printer bindings",
   "devDependencies": {
@@ -36,8 +36,8 @@
     "url": "git+https://github.com/JBHi-Fi/node-printer.git"
   },
   "scripts": {
-    "install": "node-gyp install",
+    "install": "node-gyp-build",
     "typecheck": "tsc --pretty false --noEmit --skipLibCheck --module commonjs --moduleResolution node --target es2018 --esModuleInterop --types ./index.d.ts,node examples-ts/*.ts examples-ts/types/*.d.ts"
   },
-  "version": "0.7.0"
+  "version": "0.7.1"
 }
