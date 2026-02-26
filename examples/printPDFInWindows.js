@@ -4,7 +4,7 @@ var printer = require("../"),
   imagemagick, // will be loaded later with proper error.
   fs = require("fs"),
   filename = process.argv[2],
-  printername = process.argv[2];
+  printername = process.argv[3];
 
 if (process.platform !== "win32") {
   throw "This application can be run only on win32 as a demo of print PDF image";
@@ -39,9 +39,10 @@ imagemagick.convert(
     }
 
     // Now we have EMF file, send it to printer as EMF format
-    printer.printDirect({
-      data: buffer,
-      type: "EMF",
+  printer.printDirect({
+    data: buffer,
+    type: "EMF",
+    printer: printername,
       success: function (id) {
         console.log("printed with id " + id);
       },

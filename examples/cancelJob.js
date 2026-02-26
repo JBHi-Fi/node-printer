@@ -18,9 +18,11 @@ printer.printDirect({
     console.log(
       "current job info:" + util.inspect(jobInfo, { depth: 10, colors: true })
     );
-    if (jobInfo.status.indexOf("PRINTED") !== -1) {
-      console.log("too late, already printed");
-      return;
+    if (jobInfo && typeof jobInfo.status === "string") {
+      if (jobInfo.status.indexOf("PRINTED") !== -1) {
+        console.log("too late, already printed");
+        return;
+      }
     }
     console.log("cancelling...");
     var is_ok = printer.setJob(printerName, jobID, "CANCEL");

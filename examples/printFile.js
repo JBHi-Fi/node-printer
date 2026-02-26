@@ -8,7 +8,7 @@ console.log("try to print file: " + filename);
 if (process.platform != "win32") {
   printer.printFile({
     filename: filename,
-    printer: process.env[3], // printer name, if missing then will print to default printer
+    printer: process.argv[3], // printer name, if missing then will print to default printer
     success: function (jobID) {
       console.log("sent to printer with ID: " + jobID);
     },
@@ -21,7 +21,7 @@ if (process.platform != "win32") {
   var fs = require("fs");
   printer.printDirect({
     data: fs.readFileSync(filename),
-    printer: process.env[3], // printer name, if missing then will print to default printer
+    printer: process.argv[3], // printer name, if missing then will print to default printer
     success: function (jobID) {
       console.log("sent to printer with ID: " + jobID);
     },

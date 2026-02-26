@@ -39,6 +39,35 @@ npm install printer
 ### How to use:
 
 See [examples](https://github.com/tojocky/node-printer/tree/master/examples)
+and the TypeScript equivalents in `examples-ts`.
+
+CommonJS:
+
+```js
+const printer = require("printer");
+
+const printers = printer.getPrinters();
+```
+
+TypeScript:
+
+```ts
+import printer = require("printer");
+
+const printers = printer.getPrinters();
+```
+
+Run TypeScript examples with ts-node:
+
+```bash
+npx ts-node examples-ts/print_raw.ts
+```
+
+Run TypeScript examples with tsx:
+
+```bash
+npx tsx examples-ts/print_raw.ts
+```
 
 ### Author(s):
 

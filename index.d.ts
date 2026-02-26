@@ -41,22 +41,16 @@
  *   system_driverinfo: 'D' } }
  */
 interface PrinterDevice {
-  name: string;
-  portName: string;
-  driverName: string;
-  location?: string;
-  printProcessor: string;
-  datatype: string;
-  status: string[];
-  statusNumber: number;
-  attributes: string[];
-  priority: number;
-  defaultPriority: number;
-  averagePPM: number;
+  name?: string;
+  isDefault?: boolean;
+  status?: string | number;
+  options?: Record<string, unknown>;
+  [key: string]: unknown;
 }
 
 interface PrintOptions {
   printer?: string;
+  docname?: string;
   /**
    * type: RAW, TEXT, PDF, JPEG, .. depends on platform
    */
@@ -65,8 +59,8 @@ interface PrintOptions {
    * supported page sizes may be retrieved using getPrinterDriverOptions, supports CUPS printing options
    */
   options?: Object;
-  success?(jobId: number): void;
-  error?(err?: Error): void;
+  success?(jobId: number | string): void;
+  error?(err?: Error | string): void;
 }
 
 interface PrintDirectOptions extends PrintOptions {
@@ -78,8 +72,8 @@ interface PrintFileOptions extends PrintOptions {
 }
 
 declare const printer: {
-  getPrinters(): PrinterDevice[];
-  getPrinter(printerName?: string): PrinterDevice;
+  getPrinters(): PrinterDevice[] | undefined;
+  getPrinter(printerName?: string): PrinterDevice | undefined;
   /**
    * { PageSize:
    *   { '200dnp5x3.5': false,
@@ -141,18 +135,29 @@ declare const printer: {
    *     ...
    *     '-1': false } }
    */
-  getPrinterDriverOptions(): Object;
+  getPrinterDriverOptions(printerName?: string):
+    | Record<string, Record<string, boolean>>
+    | undefined;
   /**
    * e.g. 310dnp6x8
    */
-  getSelectedPaperSize(): string;
-  getDefaultPrinterName(): string;
+  getSelectedPaperSize(printerName?: string): string;
+  getDefaultPrinterName(): string | undefined;
   printDirect(options: PrintDirectOptions): void;
+  printDirect(
+    data: Buffer | string,
+    printer?: string,
+    type?: string,
+    docname?: string,
+    options?: Object,
+    success?: (jobId: number | string) => void,
+    error?: (err?: Error | string) => void
+  ): void;
   printFile(options: PrintFileOptions): void;
   getSupportedPrintFormats(): string[];
-  getJob(printerName: string, jobId: string): Object;
-  setJob(printerName: string, jobId: string, command: string): void;
+  getJob(printerName: string, jobId: string | number): unknown;
+  setJob(printerName: string, jobId: string | number, command: string): unknown;
   getSupportedJobCommands(): string[];
 };
 
-export default printer;
+export = printer;

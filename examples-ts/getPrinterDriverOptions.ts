@@ -1,8 +1,9 @@
-var printer = require("../"),
-  util = require("util"),
-  printers = printer.getPrinters() || [];
+import printer = require("..");
+import * as util from "util";
 
-printers.forEach(function (iPrinter, i) {
+const printers = printer.getPrinters() || [];
+
+printers.forEach((iPrinter, i) => {
   console.log(
     "" +
       i +
