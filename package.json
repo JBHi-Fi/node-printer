@@ -9,7 +9,7 @@
     "Eko Eryanto @ekoeryanto"
   ],
   "dependencies": {
-    "nan": "2.22.2",
+    "nan": "2.27.0",
     "node-gyp-build": "4.8.4"
   },
   "description": "Node.js printer bindings",
@@ -39,5 +39,5 @@
     "install": "node-gyp-build",
     "typecheck": "tsc --pretty false --noEmit --skipLibCheck --module commonjs --moduleResolution node --target es2018 --esModuleInterop --types ./index.d.ts,node examples-ts/*.ts examples-ts/types/*.d.ts"
   },
-  "version": "0.7.2"
+  "version": "0.8.0"
 }

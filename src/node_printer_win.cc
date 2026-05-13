@@ -217,10 +217,10 @@ namespace
         // Common fields
         // DWORD                JobId;
         Nan::Set(result_printer_job, V8_STRING_NEW_UTF8("id"), V8_VALUE_NEW(Number, job->JobId));
-#define ADD_V8_STRING_PROPERTY(name, key)                                                                      \
-    if ((job->##key != NULL) && (*job->##key != L'\0'))                                                        \
-    {                                                                                                          \
-        Nan::Set(result_printer_job, V8_STRING_NEW_UTF8(#name), V8_STRING_NEW_2BYTES((uint16_t *)job->##key)); \
+#define ADD_V8_STRING_PROPERTY(name, key)                                                                    \
+    if ((job->key != NULL) && (*job->key != L'\0'))                                                          \
+    {                                                                                                        \
+        Nan::Set(result_printer_job, V8_STRING_NEW_UTF8(#name), V8_STRING_NEW_2BYTES((uint16_t *)job->key)); \
     }
         // LPTSTR               pPrinterName;
         ADD_V8_STRING_PROPERTY(name, pPrinterName)
